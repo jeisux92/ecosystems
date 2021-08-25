@@ -33,6 +33,8 @@ router
             next(error)
         }
     })
+
+router
     .get('/:accountId', auth, async (req: Request, res: Response, next: NextFunction) => {
         try {
             const { accountId } = req.params

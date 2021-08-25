@@ -13,24 +13,14 @@ import associate from './models/associate';
 const authRouter = require('./routes/auth')
 const accountsRouter = require('./routes/accounts')
 const errorHandler = require('./middlewares/errorHandler')
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger-output.json');
 
 require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT; // default port to listen
 
-
-
-
-
-
-
-
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
-
-app.use(express.json(), async () => await associate())
+associate()
+app.use(express.json())
 app.use('/auth', authRouter)
 app.use('/accounts', accountsRouter)
 

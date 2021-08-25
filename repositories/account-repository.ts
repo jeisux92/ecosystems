@@ -17,7 +17,7 @@ export default class AccountRepository implements IBaseRepository<Account> {
     }
 
 
-    async getAllAsync(): Promise<Account[]> {
-        return await Account.findAll()
-    }
+    getAllAsync(): Promise<Account[]> {
+        return Account.findAll()
+    } 
 }

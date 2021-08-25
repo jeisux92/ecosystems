@@ -6,17 +6,7 @@ import Container from 'typedi';
 const router = express.Router()
 
 
-router.post('/register', async (req: Request, res: Response) => {
-    // #swagger.tags = ['User']
-    // #swagger.description = 'Endpoint to create new user'
-    /* #swagger.parameters['userId'] = { 
-            description: 'User Id (must be an identification number)',
-            type: 'number'    
-    }*/
-    /* #swagger.parameters['password'] = {
-           description: 'Password to login later',
-           type: 'string'
-    } */
+router.post('/register', async (req: Request, res: Response) => {   
     const { userId, password } = req.body
     if (!(userId && password)) {
         res.status(400).send("All input is required");

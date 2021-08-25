@@ -12,19 +12,13 @@ export default class UserService {
 
 
     async createUserAsync(userId: number, password: string): Promise<boolean> {
-
-        try {
-            if (await this.userRepository.getByIdAsync(userId)) {
-                return false
-            } else {
-                const encryptedPassword = await bcrypt.hash(password, 10);
-                let user: User = User.build({ id: userId, password: encryptedPassword })
-                await this.userRepository.createAsync(user);
-                return true
-            }
-        }
-        catch (ex) {
-            throw ex
+        if (await this.userRepository.getByIdAsync(userId)) {
+            return false
+        } else {
+            const encryptedPassword = await bcrypt.hash(password, 10);
+            let user: User = User.build({ id: userId, password: encryptedPassword })
+            await this.userRepository.createAsync(user);
+            return true
         }
     }
 

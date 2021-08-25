@@ -6,7 +6,7 @@ export default async () => {
     Account.belongsTo(User);
     Transaction.belongsTo(Account);
 
-    await User.sync({ force: true })
-    await Account.sync({ force: true })
-    await Transaction.sync({ force: true })
+    User.sync({ force: true })
+    Account.sync({ force: true })
+    Transaction.sync({ force: true })
 }
