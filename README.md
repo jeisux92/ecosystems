@@ -5,7 +5,7 @@
 ## Summary
  
 
-This is a project to manage all the logic which allows you to connect your client application in order to
+This is a project to manage all the logic which allows you to connect your client application as you prefer.
 
   
 
@@ -18,7 +18,9 @@ These are the end points:
 **Create user**
 
 Url: http://localhost:8080/auth/register
+
 Method: POST
+
 Payload:
 ```
 {
@@ -31,7 +33,9 @@ Payload:
 **Generate Token**
 
 Url: http://localhost:8080/auth/login
+
 Method: POST
+
 Payload:
 ```
 {
@@ -43,7 +47,9 @@ Payload:
 **Create new account**
 
 Url: http://localhost:8080/accounts
+
 Method: POST
+
 Headers: 
 ```
 x-access-token: your token
@@ -59,7 +65,9 @@ Payload:
 **Get list of  accounts**
 
 Url: http://localhost:8080/accounts
+
 Method: GET
+
 Headers: 
 ```
 x-access-token: your token
@@ -68,7 +76,9 @@ x-access-token: your token
 **Create new transaction**
 
 Url: http://localhost:8080/accounts/{your accountId}
+
 Method: POST
+
 Headers: 
 ```
 x-access-token: your token
@@ -85,7 +95,9 @@ Payload:
 **Get list of  transactions**
 
 Url: http://localhost:8080/accounts/{your accountId}
+
 Method: GET
+
 Headers: 
 ```
 x-access-token: your token
@@ -94,7 +106,9 @@ x-access-token: your token
 **Get account average**
 
 Url: http://localhost:8080/accounts/{your accountId}/transactions?startDate={startDate}&endDate={endDate}
+
 Method: GET
+
 Headers: 
 ```
 x-access-token: your token
