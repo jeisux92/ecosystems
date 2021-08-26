@@ -123,11 +123,8 @@ x-access-token: your token
   
 
 | Column | Type | Constraints |
-
 | ------------- |:-------------:| -----:|
-
 | id | int | Primary Key <br/> Not Null |
-
 | password | varchar | Not Null |
 
   
