@@ -21,10 +21,4 @@ export default class UserRepository implements IBaseRepository<User> {
     async getAllAsync(): Promise<User[]> {
         return await User.findAll()
     }
-
-
-
-
-
-
 }

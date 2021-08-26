@@ -5,23 +5,26 @@ import { Op } from "sequelize";
 
 @Service()
 export default class TransactionRepository implements IBaseRepository<Transaction> {
-    constructor() {
 
-    }
     async getByAccountIdAsync(accountId: number): Promise<Transaction[]> {
         return Transaction.findAll({ where: { AccountId: accountId } });
     }
 
-    async getByAccountIdAndDatesAsync(accountId: number, startDate: Date, endDate: Date): Promise<Transaction[]> {
+    async getByAccountIdAndDatesAsync(accountId: number, startDate: string, endDate: string): Promise<Transaction[]> {
+        console.log(startDate, endDate)
         return Transaction.findAll({
             where: {
                 [Op.and]: {
                     AccountId: accountId,
                     createdAt: {
-                        [Op.between]: [startDate, endDate]
+                        [Op.between]: [
+                            // startDate, endDate
+                            '2012-04-23T18:25:43.511Z', '2022-04-23T18:25:43.511Z'
+                        ]
                     }
                 }
-            }
+            },
+            raw: true
         });
     }
 

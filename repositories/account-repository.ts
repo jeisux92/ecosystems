@@ -4,9 +4,7 @@ import { Service } from 'typedi';
 
 @Service()
 export default class AccountRepository implements IBaseRepository<Account> {
-    constructor() {
-
-    }
+    
     async getByUserIdAsync(userId: number): Promise<Account[]> {
         const response: any = await Account.findAll({ where: { userId } });
         return response

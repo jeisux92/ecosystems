@@ -23,7 +23,7 @@ export default class AccountService {
         await this.accountRepository.createAsync(accountToSave);
     }
 
-    async getAverageByAccountAsync(account: number, startDate: Date, endDate: Date): Promise<number> {
+    async getAverageByAccountAsync(account: number, startDate: string, endDate: string): Promise<number> {
         const transactions: Transaction[] = await this.transactionRepository.getByAccountIdAndDatesAsync(account, startDate, endDate)
         return transactions.reduce((x: number, s: Transaction) => x + s.getDataValue('spend'), 0) / transactions.length
 

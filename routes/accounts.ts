@@ -61,4 +61,16 @@ router
         }
     })
 
+router.get('/:accountId/transactions', auth, async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { accountId } = req.params
+        const { startDate, endDate } = req.query
+        let accountService: AccountService = Container.get<AccountService>(AccountService);
+        const average: number = await accountService.getAverageByAccountAsync(+accountId, startDate, endDate)
+        res.send(average)
+    } catch (error) {
+        next(error)
+    }
+})
+
 module.exports = router
